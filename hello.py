@@ -1,6 +1,12 @@
-import datetime
+import urllib.error
+from urllib.request import urlopen
 
-t = datetime.datetime.now()
 
-print(t.year, t.month, t.day)
+try:
+    urlopen("http://www.jsfjshfsl.com")
+except urllib.error.HTTPError as e:
+    print('status', e.code)
+    print('reason', e.reason)
+    print('url', e.url)
+
 
